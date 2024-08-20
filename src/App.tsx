@@ -1,33 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
 
+type Threds = {
+  id: number;
+  title: string;
+}
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [threads, setThreads] = useState<Threds[]>([]);
+
+  useEffect(() => {
+    fetch("https:railway.bulletinboard.techtrain.dev/threads?offset=20")
+      .then(res => res.json())
+      .then(data => setThreads(data))
+      .catch(error => {
+        console.log("スレッドのデータを取得できません", error)
+      })
+  });
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='headerContainer'>
+        <header className='homeHeader'>掲示板</header>
+        <a className='thredCreateLink' href="">スレッドをたてる</a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <section className='thredContainer'>
+        <h1>新着スレッド</h1>
+        <ul>
+          {threads.map(thred => (
+            <li className='thredCord' key={thred.id}>{thred.title}</li>
+          ))}
+        </ul>
+      </section>
+
     </>
   )
 }
