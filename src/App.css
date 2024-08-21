@@ -1,3 +1,6 @@
+body {
+}
+
 .headerContainer {
   background-color: #8ab6b6ad;
   display: flex;
@@ -10,17 +13,17 @@
   font-size: 32px;
 }
 
-.thredCreateLink {
+.threadCreateLink {
   display: inline-block;
 }
 
-.thredContainer {
+.threadContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.thredCord {
+.threadCord {
   list-style: none;
   border: 1px solid black;
   padding: 24px;

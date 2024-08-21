@@ -1,39 +1,52 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import './App.css'
+import Header from './Header/Header';
+import ThreadsCreate from './ThreadsCreate/ThreadsCreate';
 
-type Threds = {
+type Threads = {
   id: number;
   title: string;
 }
 
-function App() {
-  const [threads, setThreads] = useState<Threds[]>([]);
+const Home = () => {
+  const [threads, setThreads] = useState<Threads[]>([]);
 
   useEffect(() => {
-    fetch("https:railway.bulletinboard.techtrain.dev/threads?offset=20")
+    fetch("https://railway.bulletinboard.techtrain.dev/threads?offset=20")
       .then(res => res.json())
       .then(data => setThreads(data))
       .catch(error => {
         console.log("スレッドのデータを取得できません", error)
       })
-  });
-
+  }, []);
+  console.log(threads)
   return (
     <>
-      <div className='headerContainer'>
-        <header className='homeHeader'>掲示板</header>
-        <a className='thredCreateLink' href="">スレッドをたてる</a>
-      </div>
-      <section className='thredContainer'>
+      <Header>
+        <Link to="/threads/new" className='threadCreateLink' >スレッドをたてる</Link>
+      </Header >
+      <section className='threadContainer'>
         <h1>新着スレッド</h1>
         <ul>
-          {threads.map(thred => (
-            <li className='thredCord' key={thred.id}>{thred.title}</li>
+          {threads.map(thread => (
+            <li className='threadCord' key={thread.id}>{thread.title}</li>
           ))}
         </ul>
       </section>
-
     </>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/threads/new" element={<ThreadsCreate />} />
+      </Routes>
+    </Router>
   )
 }
 
