@@ -7,9 +7,10 @@ interface HeaderProps {
 
 export default function Header({ children }: HeaderProps) {
   return (
-    <div className='headerContainer'>
-      <header className='homeHeader'>掲示板</header>
+    <header className='headerContainer'>
+      <h1 className='homeHeader'>
+        掲示板</h1>
       {children}
-    </div>
+    </header>
   )
 }
