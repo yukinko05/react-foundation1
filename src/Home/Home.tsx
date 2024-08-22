@@ -12,7 +12,7 @@ export default function Home() {
   const [threads, setThreads] = useState<Threads[]>([]);
 
   useEffect(() => {
-    fetch("https://railway.bulletinboard.techtrain.dev/threads?offset=60")
+    fetch("https://railway.bulletinboard.techtrain.dev/threads")
       .then(res => res.json())
       .then(data => setThreads(data))
       .catch(error => {

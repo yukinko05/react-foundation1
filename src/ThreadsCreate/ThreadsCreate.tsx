@@ -7,8 +7,7 @@ export default function ThreadsCreate() {
   const [createTitle, setCreateTitle] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     const postData = {
       title: createTitle
     }
@@ -52,7 +51,8 @@ export default function ThreadsCreate() {
         <button
           onClick={handleSubmit}
           disabled={createTitle === ""}
-        >作成</button>
+        >作成
+        </button>
       </section>
     </>
   )
