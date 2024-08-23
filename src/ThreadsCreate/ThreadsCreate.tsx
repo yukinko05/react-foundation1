@@ -1,23 +1,22 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import "./threadsCreate.css";
-import Header from "../Header/Header";
+import './threadsCreate.css';
+import Header from '../Header/Header';
 
 export default function ThreadsCreate() {
   const [createTitle, setCreateTitle] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     const postData = {
-      title: createTitle
+      title: createTitle,
     }
 
     try {
       await fetch("https://railway.bulletinboard.techtrain.dev/threads", {
         method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(postData),
       })
@@ -31,28 +30,35 @@ export default function ThreadsCreate() {
     catch (error) {
       console.log("スレッドが作成できませんでした。", error)
     }
-  }
+  };
 
   return (
     <>
       <Header>
-        <Link to="/" className='threadCreateLink' >Topに戻る</Link>
+        <Link to="/" className="threadCreateLink" >
+          Topに戻る
+        </Link>
       </Header>
-      <section>
-        <h1>スレッド新規作成</h1>
-        <label>
+      <section className="container">
+        <h1 className="pageTitle">Create Thread</h1>
+        <label className="labelTitle">
           スレッドタイトル
-          <input type="text"
+          <input
+            type="text"
             value={createTitle}
-            name="threadTitle"
+            name="inputTitle"
+            className="threadTitleInput"
             onChange={(e) => setCreateTitle(e.target.value)}
             placeholder="タイトルを入力してください"
           />
         </label>
         <button
+          className="createButton"
           onClick={handleSubmit}
           disabled={createTitle === ""}
-        >作成</button>
+        >
+          作成
+        </button>
       </section>
     </>
   )

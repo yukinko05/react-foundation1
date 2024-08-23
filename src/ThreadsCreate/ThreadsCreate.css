@@ -1,0 +1,32 @@
+.container {
+  padding: 24px;
+}
+
+.pageTitle {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.labelTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 16px;
+}
+
+.threadTitleInput {
+  width: 350px;
+  font-size: 16px;
+  border: 1px solid #d9d7d7fb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-left: 16px;
+}
+
+.createButton {
+  background-color: black;
+  border-radius: 100px;
+  color: white;
+  display: inline-block;
+  padding: 16px 32px;
+  margin-left: 16px;
+}
