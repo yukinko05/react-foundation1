@@ -1,0 +1,14 @@
+.headerContainer {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d9d7d7fb;
+  padding: 16px 24px;
+}
+
+.homeHeader {
+  color: chocolate;
+  font-size: 40px;
+  font-weight: bold;
+}

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 import "./Header.css";
 
 interface HeaderProps {
@@ -7,9 +7,8 @@ interface HeaderProps {
 
 export default function Header({ children }: HeaderProps) {
   return (
-    <header className='headerContainer'>
-      <h1 className='homeHeader'>
-        掲示板</h1>
+    <header className="headerContainer">
+      <h1 className="homeHeader">Threads</h1>
       {children}
     </header>
   )
