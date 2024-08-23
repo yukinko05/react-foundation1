@@ -1,31 +1,23 @@
-body {
-  margin: 0;
-}
-
-.headerContainer {
-  background-color: #8ab6b6ad;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 32px 42px;
-}
-
-.homeHeader {
-  font-size: 32px;
-}
-
 .threadCreateLink {
+  background-color: chocolate;
+  border-radius: 32px;
+  color: white;
   display: inline-block;
+  padding: 16px;
 }
 
 .threadContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 24px;
 }
 
-.threadCord {
-  list-style: none;
-  border: 1px solid black;
-  padding: 24px;
+.pageTitle {
+  font-size: 32px;
+  font-weight: bold;
+  padding: 16px;
+}
+
+.threadListItem {
+  font-size: 16px;
+  border-top: 1px solid #d9d7d7fb;
+  padding: 32px;
 }
