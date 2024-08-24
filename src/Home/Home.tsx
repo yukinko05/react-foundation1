@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
-import Header from '../Header/Header';
-import './Home.css';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Header from "../Header/Header";
+import "./Home.css";
 
 type Threads = {
   id: number;
@@ -13,26 +13,31 @@ export default function Home() {
 
   useEffect(() => {
     fetch("https://railway.bulletinboard.techtrain.dev/threads")
-      .then(res => res.json())
-      .then(data => setThreads(data))
-      .catch(error => {
-        console.log("スレッドのデータを取得できません。", error)
-      })
+      .then((res) => res.json())
+      .then((data) => setThreads(data))
+      .catch((error) => {
+        console.log("スレッドのデータを取得できません。", error);
+      });
   }, []);
 
+  // console.log(threads)
   return (
     <>
       <Header>
-        <Link to="/threads/new" className="threadCreateLink" >スレッドをたてる</Link>
-      </Header >
+        <Link to="/threads/new" className="threadCreateLink">
+          スレッドをたてる
+        </Link>
+      </Header>
       <section className="threadContainer">
         <h1 className="pageTitle">New Threads</h1>
         <ul>
-          {threads.map(thread => (
-            <li className="threadListItem" key={thread.id}>{thread.title}</li>
+          {threads.map((thread) => (
+            <li className="threadListItem" key={thread.id}>
+              {thread.title}
+            </li>
           ))}
         </ul>
       </section>
     </>
-  )
+  );
 }

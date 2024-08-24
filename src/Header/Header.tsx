@@ -11,5 +11,5 @@ export default function Header({ children }: HeaderProps) {
       <h1 className="homeHeader">Threads</h1>
       {children}
     </header>
-  )
+  );
 }
