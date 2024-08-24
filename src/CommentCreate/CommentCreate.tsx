@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./CommentCreate.css";
 
 interface CommentCreateProps {
   threadId: string | undefined;
@@ -26,12 +27,20 @@ export default function CommentCreate({ threadId }: CommentCreateProps) {
     }
   };
   return (
-    <div>
-      <label>
+    <div className="inputContainer">
+      <label htmlFor="comment" className="commentLabel">
         Comment
-        <input type="text" value={comment} onChange={(e) => setComment(e.target.value)} />
       </label>
-      <button onClick={handleSubmit}>投稿</button>
+      <input
+        type="text"
+        id="comment"
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
+        className="input"
+      />
+      <button onClick={handleSubmit} className="commentButton" disabled={comment === ""}>
+        投稿
+      </button>
     </div>
   );
 }

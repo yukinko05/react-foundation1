@@ -1,0 +1,26 @@
+.threadTitle {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.threadContainer {
+  width: 800px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.commentItem {
+  font-size: 24px;
+  border: 1px solid #d9d7d7fb;
+  border-radius: 8px;
+  padding: 32px;
+  margin-top: 16px;
+}
+
+.notComments {
+  font-size: 24px;
+  margin-top: 16px;
+}

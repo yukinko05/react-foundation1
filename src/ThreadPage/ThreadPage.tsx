@@ -6,7 +6,7 @@ import CommentCreate from "../CommentCreate/CommentCreate";
 
 type threadData = {
   id: string;
-  post: string;
+  post: string | null;
 };
 
 export default function ThreadPage() {
@@ -24,8 +24,9 @@ export default function ThreadPage() {
       .catch((error) => {
         console.log("スレッドのデータを取得できません。", error);
       });
-  }, [threadData]);
+  }, [threadId]);
 
+  console.log(threadData);
   return (
     <>
       <Header>
@@ -33,15 +34,23 @@ export default function ThreadPage() {
           スレッドをたてる
         </Link>
       </Header>
-      <section>
-        <h1>{ThreadTitle}</h1>
-        <ul>
-          {threadData.map((thread) => (
-            <li key={thread.id}>{thread.post}</li>
-          ))}
-        </ul>
-      </section>
-      <CommentCreate threadId={threadId} />
+      <div className="container">
+        <section className="threadContainer">
+          <h1 className="threadTitle">{ThreadTitle}</h1>
+          {threadData.length > 0 ? (
+            <ul>
+              {threadData.map((thread) => (
+                <li key={thread.id} className="commentItem">
+                  {thread.post}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="notComments">まだコメントがありません。</p>
+          )}
+        </section>
+        <CommentCreate threadId={threadId} />
+      </div>
     </>
   );
 }

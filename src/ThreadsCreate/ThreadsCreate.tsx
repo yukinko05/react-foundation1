@@ -37,7 +37,7 @@ export default function ThreadsCreate() {
           Topに戻る
         </Link>
       </Header>
-      <section className="container">
+      <section className="threadContainer">
         <h1 className="pageTitle">Create Thread</h1>
         <label className="labelTitle">
           スレッドタイトル
