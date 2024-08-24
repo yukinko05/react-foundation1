@@ -9,7 +9,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/threads/new" element={<ThreadsCreate />} />
-        <Route path="/threads/:thread_id" element={<TreadsPage />} />
+        <Route path="/threads/:threadId" element={<TreadsPage />} />
       </Routes>
     </Router>
   );

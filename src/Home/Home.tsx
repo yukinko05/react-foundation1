@@ -20,7 +20,6 @@ export default function Home() {
       });
   }, []);
 
-  // console.log(threads)
   return (
     <>
       <Header>
@@ -32,9 +31,9 @@ export default function Home() {
         <h1 className="pageTitle">New Threads</h1>
         <ul>
           {threads.map((thread) => (
-            <li className="threadListItem" key={thread.id}>
-              {thread.title}
-            </li>
+            <Link to={`/threads/${thread.id}?title=${thread.title}`} key={thread.id}>
+              <li className="threadListItem">{thread.title}</li>
+            </Link>
           ))}
         </ul>
       </section>

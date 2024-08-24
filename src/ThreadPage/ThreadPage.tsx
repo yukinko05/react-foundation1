@@ -1,22 +1,26 @@
 import { useState, useEffect } from "react";
 import Header from "../Header/Header";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
+import "./ThreadPage.css";
+import CommentCreate from "../CommentCreate/CommentCreate";
 
 type threadData = {
-  title: number;
-  title: string;
+  id: string;
+  post: string;
 };
 
 export default function ThreadPage() {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const ThreadTitle = params.get("title");
   const { threadId } = useParams();
-  const [threadData, setThreadData] = useState([]);
+
+  const [threadData, setThreadData] = useState<threadData[]>([]);
 
   useEffect(() => {
-    fetch(
-      `https://railway.bulletinboard.techtrain.dev/threads/d386569f-3f20-41d6-8342-712a288f4ca7/posts`
-    )
+    fetch(`https://railway.bulletinboard.techtrain.dev/threads/${threadId}/posts`)
       .then((res) => res.json())
-      .then((data) => console.log(data.posts))
+      .then((data) => setThreadData(data.posts))
       .catch((error) => {
         console.log("スレッドのデータを取得できません。", error);
       });
@@ -30,8 +34,14 @@ export default function ThreadPage() {
         </Link>
       </Header>
       <section>
-        <h1>{threadData}</h1>
+        <h1>{ThreadTitle}</h1>
+        <ul>
+          {threadData.map((thread) => (
+            <li key={thread.id}>{thread.post}</li>
+          ))}
+        </ul>
       </section>
+      <CommentCreate threadId={threadId} />
     </>
   );
 }
