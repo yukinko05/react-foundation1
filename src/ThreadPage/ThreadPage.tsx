@@ -26,7 +26,15 @@ export default function ThreadPage() {
       });
   }, [threadId]);
 
-  console.log(threadData);
+  const refreshThreadData = () => {
+    fetch(`https://railway.bulletinboard.techtrain.dev/threads/${threadId}/posts`)
+      .then((res) => res.json())
+      .then((data) => setThreadData(data.posts))
+      .catch((error) => {
+        console.log("スレッドのデータを取得できません。", error);
+      });
+  };
+
   return (
     <>
       <Header>
@@ -49,7 +57,7 @@ export default function ThreadPage() {
             <p className="notComments">まだコメントがありません。</p>
           )}
         </section>
-        <CommentCreate threadId={threadId} />
+        <CommentCreate threadId={threadId} onCommentCreated={refreshThreadData} />
       </div>
     </>
   );

@@ -3,9 +3,10 @@ import "./CommentCreate.css";
 
 interface CommentCreateProps {
   threadId: string | undefined;
+  onCommentCreated: () => void;
 }
 
-export default function CommentCreate({ threadId }: CommentCreateProps) {
+export default function CommentCreate({ threadId, onCommentCreated }: CommentCreateProps) {
   const [comment, setComment] = useState("");
 
   const handleSubmit = async () => {
@@ -22,6 +23,7 @@ export default function CommentCreate({ threadId }: CommentCreateProps) {
         body: JSON.stringify(postData),
       });
       setComment("");
+      onCommentCreated();
     } catch (error) {
       console.log("コメントが投稿できませんでした。", error);
     }
