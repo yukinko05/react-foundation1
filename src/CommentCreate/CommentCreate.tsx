@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./CommentCreate.css";
+import styles from "./styles.module.css";
 
 interface CommentCreateProps {
   threadId: string | undefined;
@@ -7,11 +7,11 @@ interface CommentCreateProps {
 }
 
 export default function CommentCreate({ threadId, onCommentCreated }: CommentCreateProps) {
-  const [comment, setComment] = useState("");
+  const [post, setPost] = useState("");
 
   const handleSubmit = async () => {
     const postData = {
-      post: comment,
+      post: post,
     };
 
     try {
@@ -22,25 +22,25 @@ export default function CommentCreate({ threadId, onCommentCreated }: CommentCre
         },
         body: JSON.stringify(postData),
       });
-      setComment("");
+      setPost("");
       onCommentCreated();
     } catch (error) {
       console.log("コメントが投稿できませんでした。", error);
     }
   };
   return (
-    <div className="inputContainer">
-      <label htmlFor="comment" className="commentLabel">
+    <div className={styles.inputContainer}>
+      <label htmlFor="post" className={styles.postLabel}>
         Comment
       </label>
-      <input
-        type="text"
-        id="comment"
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
-        className="input"
+      <textarea
+        name="post"
+        id="post"
+        value={post}
+        onChange={(e) => setPost(e.target.value)}
+        className={styles.input}
       />
-      <button onClick={handleSubmit} className="commentButton" disabled={comment === ""}>
+      <button onClick={handleSubmit} className={styles.postButton} disabled={post === ""}>
         投稿
       </button>
     </div>
