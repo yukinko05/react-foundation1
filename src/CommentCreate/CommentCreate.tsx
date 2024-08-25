@@ -7,11 +7,11 @@ interface CommentCreateProps {
 }
 
 export default function CommentCreate({ threadId, onCommentCreated }: CommentCreateProps) {
-  const [comment, setComment] = useState("");
+  const [post, setPost] = useState("");
 
   const handleSubmit = async () => {
     const postData = {
-      post: comment,
+      post: post,
     };
 
     try {
@@ -22,7 +22,7 @@ export default function CommentCreate({ threadId, onCommentCreated }: CommentCre
         },
         body: JSON.stringify(postData),
       });
-      setComment("");
+      setPost("");
       onCommentCreated();
     } catch (error) {
       console.log("コメントが投稿できませんでした。", error);
@@ -30,17 +30,17 @@ export default function CommentCreate({ threadId, onCommentCreated }: CommentCre
   };
   return (
     <div className="inputContainer">
-      <label htmlFor="comment" className="commentLabel">
+      <label htmlFor="post" className="postLabel">
         Comment
       </label>
-      <input
-        type="text"
-        id="comment"
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
+      <textarea
+        name="post"
+        id="post"
+        value={post}
+        onChange={(e) => setPost(e.target.value)}
         className="input"
       />
-      <button onClick={handleSubmit} className="commentButton" disabled={comment === ""}>
+      <button onClick={handleSubmit} className="postButton" disabled={post === ""}>
         投稿
       </button>
     </div>
