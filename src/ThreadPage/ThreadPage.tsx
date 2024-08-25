@@ -4,8 +4,8 @@ import { Link, useParams, useLocation } from "react-router-dom";
 import "./ThreadPage.css";
 import CommentCreate from "../CommentCreate/CommentCreate";
 
-type threadData = {
-  id: string;
+type Post = {
+  id: string | null;
   post: string | null;
 };
 
@@ -15,7 +15,7 @@ export default function ThreadPage() {
   const ThreadTitle = params.get("title");
   const { threadId } = useParams();
 
-  const [threadData, setThreadData] = useState<threadData[]>([]);
+  const [threadData, setThreadData] = useState<Post[]>([]);
 
   useEffect(() => {
     fetch(`https://railway.bulletinboard.techtrain.dev/threads/${threadId}/posts`)
