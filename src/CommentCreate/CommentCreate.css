@@ -5,14 +5,12 @@
 }
 
 .postLabel {
-  display: block;
   font-size: 24px;
   font-weight: bold;
   margin-top: 32px;
 }
 
 .input {
-  display: block;
   font-size: 18px;
   border: 1px solid #d9d7d7fb;
   border-radius: 8px;
@@ -20,11 +18,9 @@
   margin-top: 8px;
 }
 .postButton {
-  display: block;
   background-color: black;
   border-radius: 100px;
   color: white;
-  display: inline-block;
   padding: 16px 32px;
   margin-top: 32px;
 }
