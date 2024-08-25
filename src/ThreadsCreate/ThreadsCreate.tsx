@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./threadsCreate.css";
 import Header from "../Header/Header";
+import styles from "./styles.module.css";
 
 export default function ThreadsCreate() {
   const [createTitle, setCreateTitle] = useState("");
@@ -33,24 +33,24 @@ export default function ThreadsCreate() {
   return (
     <>
       <Header>
-        <Link to="/" className="threadCreateLink">
+        <Link to="/" className={styles.threadCreateLink}>
           Topに戻る
         </Link>
       </Header>
-      <section className="threadContainer">
-        <h1 className="pageTitle">Create Thread</h1>
-        <label className="labelTitle">
+      <section className={styles.threadContainer}>
+        <h1 className={styles.pageTitle}>Create Thread</h1>
+        <label className={styles.labelTitle}>
           スレッドタイトル
           <input
             type="text"
             value={createTitle}
             name="inputTitle"
-            className="threadTitleInput"
+            className={styles.threadTitleInput}
             onChange={(e) => setCreateTitle(e.target.value)}
             placeholder="タイトルを入力してください"
           />
         </label>
-        <button className="createButton" onClick={handleSubmit} disabled={createTitle === ""}>
+        <button className={styles.createButton} onClick={handleSubmit} disabled={createTitle === ""}>
           作成
         </button>
       </section>

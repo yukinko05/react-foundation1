@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import "./Header.css";
+import styles from "./styles.module.css";
 
 interface HeaderProps {
   children?: ReactNode;
@@ -7,8 +7,8 @@ interface HeaderProps {
 
 export default function Header({ children }: HeaderProps) {
   return (
-    <header className="headerContainer">
-      <h1 className="homeHeader">Threads</h1>
+    <header className={styles.headerContainer}>
+      <h1 className={styles.homeHeader}>Threads</h1>
       {children}
     </header>
   );

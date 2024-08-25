@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./CommentCreate.css";
+import styles from "./styles.module.css";
 
 interface CommentCreateProps {
   threadId: string | undefined;
@@ -29,8 +29,8 @@ export default function CommentCreate({ threadId, onCommentCreated }: CommentCre
     }
   };
   return (
-    <div className="inputContainer">
-      <label htmlFor="post" className="postLabel">
+    <div className={styles.inputContainer}>
+      <label htmlFor="post" className={styles.postLabel}>
         Comment
       </label>
       <textarea
@@ -38,9 +38,9 @@ export default function CommentCreate({ threadId, onCommentCreated }: CommentCre
         id="post"
         value={post}
         onChange={(e) => setPost(e.target.value)}
-        className="input"
+        className={styles.input}
       />
-      <button onClick={handleSubmit} className="postButton" disabled={post === ""}>
+      <button onClick={handleSubmit} className={styles.postButton} disabled={post === ""}>
         投稿
       </button>
     </div>
