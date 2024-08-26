@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Header from "../Header/Header";
-import styles from "./styles.module.css";
+import Header from "../../components/Header/Header";
+import styles from "./ThreadsCreate.module.css";
 
 export default function ThreadsCreate() {
   const [createTitle, setCreateTitle] = useState("");
