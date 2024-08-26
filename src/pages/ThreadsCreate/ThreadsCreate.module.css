@@ -1,0 +1,60 @@
+.topLink {
+  background-color: chocolate;
+  border-radius: 32px;
+  color: white;
+  padding: 16px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.topLink:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+.container {
+  padding: 24px;
+}
+
+.pageTitle {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 16px;
+}
+
+.labelTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 16px;
+}
+
+.threadTitleInput {
+  width: 350px;
+  font-size: 16px;
+  border: 1px solid #d9d7d7fb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-left: 16px;
+}
+
+.createButton {
+  background-color: black;
+  border-radius: 32px;
+  color: white;
+  padding: 16px 32px;
+  margin-left: 16px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.createButton:hover {
+  background-color: #303041;
+  transform: scale(1.05);
+}
+
+.createButton:disabled {
+  background-color: #d9d7d7fb;
+  color: #fff;
+  transform: none;
+}

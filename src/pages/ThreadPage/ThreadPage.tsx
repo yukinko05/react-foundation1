@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
-import Header from "../Header/Header";
+import Header from "../../components/Header/Header";
 import CommentCreate from "../CommentCreate/CommentCreate";
-import styles from "./styles.module.css";
+import styles from "./ThreadPage.module.css";
 
-type Post = {
-  id: string | null;
-  post: string | null;
+interface Post {
+  id: string;
+  post: string;
 };
 
 export default function ThreadPage() {

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Header from "../Header/Header";
-import styles from "./styles.module.css";
+import Header from "../../components/Header/Header";
+import styles from "./Home.module.css";
 
-type Threads = {
+interface Threads {
   id: number;
   title: string;
 };
@@ -27,7 +27,7 @@ export default function Home() {
           スレッドをたてる
         </Link>
       </Header>
-      <section className={styles.threadContainer}>
+      <section className={styles.container}>
         <h1 className={styles.pageTitle}>New Threads</h1>
         <ul>
           {threads.map((thread) => (

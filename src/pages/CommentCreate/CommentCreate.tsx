@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./styles.module.css";
+import styles from "./CommentCreate.module.css";
 
 interface CommentCreateProps {
   threadId: string | undefined;

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./Home/Home";
-import ThreadsCreate from "./ThreadsCreate/ThreadsCreate";
-import TreadsPage from "./ThreadPage/ThreadPage";
+import Home from "./pages/Home/Home";
+import ThreadsCreate from "./pages/ThreadsCreate/ThreadsCreate";
+import TreadsPage from "./pages/ThreadPage/ThreadPage";
 
 export default function App() {
   return (
