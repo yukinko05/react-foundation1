@@ -27,7 +27,7 @@ export default function Home() {
           スレッドをたてる
         </Link>
       </Header>
-      <section className={styles.threadContainer}>
+      <section className={styles.container}>
         <h1 className={styles.pageTitle}>New Threads</h1>
         <ul>
           {threads.map((thread) => (

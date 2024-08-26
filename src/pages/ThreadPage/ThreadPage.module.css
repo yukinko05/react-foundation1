@@ -1,6 +1,15 @@
+.threadCreateLink {
+  background-color: chocolate;
+  border-radius: 32px;
+  color: white;
+  display: inline-block;
+  padding: 16px;
+}
+
 .threadTitle {
   font-size: 40px;
   font-weight: bold;
+  margin-top: 32px;
 }
 
 .threadContainer {

@@ -33,11 +33,11 @@ export default function ThreadsCreate() {
   return (
     <>
       <Header>
-        <Link to="/" className={styles.threadCreateLink}>
+        <Link to="/" className={styles.topLink}>
           Topに戻る
         </Link>
       </Header>
-      <section className={styles.threadContainer}>
+      <section className={styles.container}>
         <h1 className={styles.pageTitle}>Create Thread</h1>
         <label className={styles.labelTitle}>
           スレッドタイトル
