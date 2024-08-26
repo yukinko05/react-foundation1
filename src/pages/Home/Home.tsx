@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import styles from "./Home.module.css";
 
-type Threads = {
+interface Threads {
   id: number;
   title: string;
 };
