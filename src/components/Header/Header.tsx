@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 import styles from "./header.module.css";
 
 interface HeaderProps {
@@ -8,7 +9,9 @@ interface HeaderProps {
 export default function Header({ children }: HeaderProps) {
   return (
     <header className={styles.headerContainer}>
-      <h1 className={styles.homeHeader}>Threads</h1>
+      <Link to="/" className={styles.homeHeader}>
+        Threads
+      </Link>
       {children}
     </header>
   );
