@@ -34,27 +34,5 @@
   border: 1px solid #d9d7d7fb;
   border-radius: 8px;
   padding: 16px;
-  margin-left: 16px;
-}
-
-.createButton {
-  background-color: black;
-  border-radius: 32px;
-  color: white;
-  padding: 16px 32px;
-  margin-left: 16px;
-  transition:
-    background-color 0.3s ease,
-    transform 0.3s ease;
-}
-
-.createButton:hover {
-  background-color: #303041;
-  transform: scale(1.05);
-}
-
-.createButton:disabled {
-  background-color: #d9d7d7fb;
-  color: #fff;
-  transform: none;
+  margin: 0px 16px;
 }

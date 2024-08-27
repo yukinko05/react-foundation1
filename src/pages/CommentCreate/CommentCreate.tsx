@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./CommentCreate.module.css";
+import Button from "../../components/Button/Button";
 
 interface CommentCreateProps {
   threadId: string | undefined;
@@ -40,9 +41,9 @@ export default function CommentCreate({ threadId, onCommentCreated }: CommentCre
         onChange={(e) => setPost(e.target.value)}
         className={styles.input}
       />
-      <button onClick={handleSubmit} className={styles.postButton} disabled={post === ""}>
+      <Button onClick={handleSubmit} disabled={post === ""}>
         投稿
-      </button>
+      </Button>
     </div>
   );
 }

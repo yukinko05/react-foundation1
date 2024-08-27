@@ -7,7 +7,7 @@ import styles from "./ThreadPage.module.css";
 interface Post {
   id: string;
   post: string;
-};
+}
 
 export default function ThreadPage() {
   const location = useLocation();

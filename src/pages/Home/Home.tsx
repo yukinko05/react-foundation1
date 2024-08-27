@@ -6,7 +6,7 @@ import styles from "./Home.module.css";
 interface Threads {
   id: number;
   title: string;
-};
+}
 
 export default function Home() {
   const [threads, setThreads] = useState<Threads[]>([]);
