@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
+import Button from "../../components/Button/Button";
 import styles from "./ThreadsCreate.module.css";
 
 export default function ThreadsCreate() {
@@ -50,9 +51,9 @@ export default function ThreadsCreate() {
             placeholder="タイトルを入力してください"
           />
         </label>
-        <button className={styles.createButton} onClick={handleSubmit} disabled={createTitle === ""}>
+        <Button onClick={handleSubmit} disabled={createTitle === ""}>
           作成
-        </button>
+        </Button>
       </section>
     </>
   );

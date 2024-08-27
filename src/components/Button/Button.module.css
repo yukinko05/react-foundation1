@@ -1,0 +1,21 @@
+.postButton {
+  background-color: black;
+  border-radius: 100px;
+  color: white;
+  padding: 16px 32px;
+  margin-top: 32px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.postButton:hover {
+  background-color: #303041;
+  transform: scale(1.05);
+}
+
+.postButton:disabled {
+  background-color: #d9d7d7fb;
+  color: #fff;
+  transform: none;
+}
