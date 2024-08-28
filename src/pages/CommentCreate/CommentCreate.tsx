@@ -40,6 +40,7 @@ export default function CommentCreate({ threadId, onCommentCreated }: CommentCre
         value={post}
         onChange={(e) => setPost(e.target.value)}
         className={styles.input}
+        placeholder="コメントを入力してください"
       />
       <Button onClick={handleSubmit} disabled={post === ""}>
         投稿

@@ -17,10 +17,48 @@
   padding: 24px;
 }
 
+.threadContainer {
+  display: flex;
+  align-items: center;
+}
 .pageTitle {
   font-size: 32px;
   font-weight: bold;
   padding: 16px;
+}
+
+.backThreadButton {
+  background-color: #dad9d9;
+  border-radius: 12px;
+  padding: 8px 16px;
+  margin-left: 8px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.backThreadButton:hover {
+  transform: scale(1.05);
+}
+
+.backThreadButton:disabled {
+  background-color: #d9d7d7fb;
+  color: #fff;
+  transform: none;
+}
+
+.nextThreadButton {
+  background-color: #dad9d9;
+  border-radius: 12px;
+  padding: 8px 16px;
+  margin-left: 24px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.nextThreadButton:hover {
+  transform: scale(1.05);
 }
 
 .threadListItem {
