@@ -1,14 +1,27 @@
 import styles from "./Button.module.css";
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  type?: "button" | "submit" | "reset";
   onClick: () => void;
   disabled?: boolean;
 }
 
-export default function Button({ children, onClick, disabled = false }: ButtonProps) {
+export default function Button({
+  children,
+  type = "button",
+  onClick,
+  disabled = false,
+  ...props
+}: ButtonProps) {
   return (
-    <button className={styles.postButton} onClick={onClick} disabled={disabled}>
+    <button
+      type={type}
+      className={styles.postButton}
+      onClick={onClick}
+      disabled={disabled}
+      {...props}
+    >
       {children}
     </button>
   );
