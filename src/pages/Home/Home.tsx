@@ -10,15 +10,20 @@ interface Threads {
 
 export default function Home() {
   const [threads, setThreads] = useState<Threads[]>([]);
+  const [offset, setOffset] = useState<number>(0);
 
-  useEffect(() => {
-    fetch("https://railway.bulletinboard.techtrain.dev/threads")
+  const fetchThreads = async (offset: number) => {
+    fetch(`https://railway.bulletinboard.techtrain.dev/threads?offset=${offset}`)
       .then((res) => res.json())
       .then((data) => setThreads(data))
       .catch((error) => {
         console.log("スレッドのデータを取得できません。", error);
       });
-  }, []);
+  };
+
+  useEffect(() => {
+    fetchThreads(offset);
+  }, [offset]);
 
   return (
     <>
@@ -28,7 +33,25 @@ export default function Home() {
         </Link>
       </Header>
       <section className={styles.container}>
-        <h1 className={styles.pageTitle}>New Threads</h1>
+        <div className={styles.threadContainer}>
+          <h1 className={styles.pageTitle}>New Threads</h1>
+          <div>
+            {/* TODO:2つのボタンをボタンコンポーネントにして表示する */}
+            <button
+              onClick={() => setOffset((prev) => prev - 10)}
+              disabled={offset < 10}
+              className={styles.backThreadButton}
+            >
+              前のスレッドへ
+            </button>
+            <button
+              onClick={() => setOffset((prev) => prev + 10)}
+              className={styles.nextThreadButton}
+            >
+              次のスレッドへ
+            </button>
+          </div>
+        </div>
         <ul>
           {threads.map((thread) => (
             <Link to={`/threads/${thread.id}?title=${thread.title}`} key={thread.id}>
