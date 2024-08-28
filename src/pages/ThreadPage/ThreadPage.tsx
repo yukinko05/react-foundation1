@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import CommentCreate from "../CommentCreate/CommentCreate";
@@ -17,23 +17,22 @@ export default function ThreadPage() {
 
   const [threadData, setThreadData] = useState<Post[]>([]);
 
-  useEffect(() => {
-    fetch(`https://railway.bulletinboard.techtrain.dev/threads/${threadId}/posts`)
-      .then((res) => res.json())
-      .then((data) => setThreadData(data.posts))
-      .catch((error) => {
-        console.log("スレッドのデータを取得できません。", error);
-      });
+  const fetchThreadData = useCallback(async () => {
+    try {
+      const res = await fetch(
+        `https://railway.bulletinboard.techtrain.dev/threads/${threadId}/posts`
+      );
+      const data = await res.json();
+      setThreadData(data.posts);
+    } catch (error) {
+      console.log("スレッドのデータを取得できません。", error);
+    }
   }, [threadId]);
 
-  const refreshThreadData = () => {
-    fetch(`https://railway.bulletinboard.techtrain.dev/threads/${threadId}/posts`)
-      .then((res) => res.json())
-      .then((data) => setThreadData(data.posts))
-      .catch((error) => {
-        console.log("スレッドのデータを取得できません。", error);
-      });
-  };
+  useEffect(() => {
+    fetchThreadData();
+    console.log("useEffect");
+  }, [fetchThreadData]);
 
   return (
     <>
@@ -57,7 +56,7 @@ export default function ThreadPage() {
             <p className={styles.notComments}>まだコメントがありません。</p>
           )}
         </section>
-        <CommentCreate threadId={threadId} onCommentCreated={refreshThreadData} />
+        <CommentCreate threadId={threadId} onCommentCreated={fetchThreadData} />
       </div>
     </>
   );
