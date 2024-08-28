@@ -13,12 +13,13 @@ export default function Home() {
   const [offset, setOffset] = useState<number>(0);
 
   const fetchThreads = async (offset: number) => {
-    fetch(`https://railway.bulletinboard.techtrain.dev/threads?offset=${offset}`)
-      .then((res) => res.json())
-      .then((data) => setThreads(data))
-      .catch((error) => {
-        console.log("スレッドのデータを取得できません。", error);
-      });
+    try {
+      const res = await fetch(`https://railway.bulletinboard.techtrain.dev/threads?offset=${offset}`)
+      const data = await res.json();
+      setThreads(data);
+    } catch (error) {
+      console.log("スレッドのデータを取得できません。", error);
+    }
   };
 
   useEffect(() => {
